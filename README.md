@@ -4,7 +4,7 @@ Slogan: predictably create and work with Cabal-based Haskell development environ
 
 This is not even in alpha yet.
 
-### Example shell.nix
+## Example shell.nix
 
 ```nix
 let 
@@ -50,7 +50,7 @@ in
   }
 ```
 
-### Example: create a new project
+## Example: create a new project
 
 ```shell
 $ mkdir foo
@@ -79,7 +79,7 @@ $ cabal run foo
 Hello, Haskell!
 ```
 
-### Credits
+## Credits
 
 Lots of code is from [haskell-nix](https://github.com/Gabriel439/haskell-nix)
 and [clash-playground](https://github.com/thoughtpolice/clash-playground).
