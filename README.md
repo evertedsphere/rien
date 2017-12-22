@@ -1,2 +1,3 @@
-# rien: easy, predictable Haskell/Cabal/Nix integration
+# rien.nix
+## easy, predictable Haskell/Cabal/Nix integration
 
