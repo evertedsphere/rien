@@ -1,9 +1,5 @@
-<div style="text-align:center">
-  <h1>rien.nix</h1>
-  easy, predictable Haskell/Cabal/Nix integration
- </div>
+## `rien = predictably [haskell, cabal, nix]`
 
-<hr/>
+WIP.
 
-WIP!
-
+Lots of code is from [haskell-nix](https://github.com/Gabriel439/haskell-nix) and [clash-playground](https://github.com/thoughtpolice/clash-playground).
