@@ -22,3 +22,5 @@ cabal.project.local
 
 result/
 nix/.gc-roots/
+nix/overrides/haskell/*/
+!nix/overrides/haskell/.gitkeep
