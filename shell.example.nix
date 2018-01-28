@@ -1,5 +1,5 @@
 let 
-  rien = import ./rien.nix {
+  rien = import ./.rien/rien.nix {
     packageName = "hello-world";
     packagePath = ./.;
 

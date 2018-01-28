@@ -1,14 +1,47 @@
-## `rien = predictably (haskell + cabal + nix)`
+## `rien = predictable (haskell + cabal + nix)`
 
-Slogan: predictably create and work with Cabal-based Haskell development environments using Nix (and eventually also extend this to building and distributing Haskell packages). Eventually intended to be a good Stack replacement.
+* create and work with Cabal-based Haskell development environments using Nix 
+* use locally installed versions of development tools like `ghc-mod` etc
+
+Eventually intended to be a good Stack replacement.
 
 This is not even in alpha yet.
 
-## Example shell.nix
+## Example: create a new project
+
+```shell
+# Create the directory and initialize a Git repo:
+mkdir foo && cd foo && git init
+
+# Add `rien` as a submodule to your Git repo:
+git submodule add https://github.com/mrkgnao/rien .rien/
+
+# Create a nixpkgs lock-file:
+nix-prefetch-git https://github.com/NixOS/nixpkgs.git > nixpkgs.json
+
+# Create a shell.nix and modify according to taste:
+cp .rien/shell.template.nix shell.nix
+
+# Enter a Nix shell with Cabal and ghc installed:
+nix-shell
+
+# Now we create a Cabal project and build it.
+cabal init
+cabal build
+```
+
+You can then run the application (if you built an `executable`):
+
+```
+$ cabal run foo
+Hello, Haskell!
+```
+
+## Example setup
 
 ```nix
 let 
-  rien = import /home/exampleuser/repos/rien/rien.nix {
+  rien = import .rien/rien.nix {
     packageName = "hello-world";
     packagePath = ./.;
 
@@ -48,35 +81,6 @@ in
       llvm
     ];
   }
-```
-
-## Example: create a new project
-
-```shell
-$ mkdir foo
-$ cd foo
-
-# Create a nixpkgs lock-file:
-
-$ nix-prefetch-git https://github.com/NixOS/nixpkgs.git > nixpkgs.json
-
-# Create a shell.nix:
-
-$ cp $PATH_TO_RIEN/shell.template.nix shell.nix
-
-# Correct the path to the rien.nix file in the shell.nix you just created.
-# Modify otherwise according to taste, adding your favorite development
-# tools (`ghcid`, `hlint`, etc.) or any dependencies you will need.
-
-# Now we create a Cabal project:
-
-$ cabal init
-
-# ... go through the prompts ...
-  
-$ cabal build
-$ cabal run foo
-Hello, Haskell!
 ```
 
 ## Credits
