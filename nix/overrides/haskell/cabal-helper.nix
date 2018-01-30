@@ -1,12 +1,16 @@
 { mkDerivation, base, bytestring, Cabal, cabal-install, containers
-, directory, exceptions, filepath, ghc, ghc-paths, ghc-prim, mtl
-, process, semigroupoids, stdenv, template-haskell, temporary
-, transformers, unix, unix-compat, utf8-string
+, directory, exceptions, fetchgit, filepath, ghc, ghc-paths
+, ghc-prim, mtl, process, semigroupoids, stdenv, template-haskell
+, temporary, transformers, unix, unix-compat, utf8-string
 }:
 mkDerivation {
   pname = "cabal-helper";
-  version = "0.8.0.0";
-  sha256 = "557c5864a2cd94e2c451ff7a08ea1b541ccec4bc383f241544fb364a8e2f0f14";
+  version = "0.8.0.1";
+  src = fetchgit {
+    url = "https://github.com/DanielG/cabal-helper/";
+    sha256 = "1dk55893yxh0mhjwsvxx1dsbdil51v99130nfrlj0qgc31jqbysi";
+    rev = "09e2236679739547984e2e29db23e160a3a80890";
+  };
   isLibrary = true;
   isExecutable = true;
   setupHaskellDepends = [ base Cabal directory filepath ];
