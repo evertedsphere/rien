@@ -5,7 +5,9 @@
 
 Eventually intended to be a good Stack replacement.
 
-This is not even in alpha yet.
+This is not even in alpha yet, and **the only testing it gets is with GHC 8.2.2**. 
+
+PRs and issues against other GHC versions are welcome!
 
 ## Example: create a new project
 
@@ -36,6 +38,19 @@ You can then run the application (if you built an `executable`):
 $ cabal run foo
 Hello, Haskell!
 ```
+
+## `ghc-mod`
+
+`ghc-mod` will be installed fine on GHC 8.2.2 if you just add `ghc-mod` to your `deps` list, but it
+will have trouble finding the path to the `cabal-helper-wrapper` executable, which it needs 
+in order to work. To fix this, just source the included `setup-ghc-mod.sh` script as follows:
+
+```
+$ nix-shell
+$ source .rien/setup-ghc-mod.sh
+```
+
+and you should be good to go.
 
 ## Example setup
 
