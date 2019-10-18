@@ -7,7 +7,7 @@ let
     # a particular `nixpkgs` commit.
     nixpkgsLock = ./nixpkgs.json;
 
-    ghcVersion = "ghc822";
+    ghcVersion = "ghc865";
   };
 
 in

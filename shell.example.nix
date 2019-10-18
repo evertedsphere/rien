@@ -7,7 +7,7 @@ let
     # a particular `nixpkgs` commit.
     nixpkgsLock = ./nixpkgs.json;
 
-    ghcVersion = "ghc822";
+    ghcVersion = "ghc865";
 
     overrides = {
       # I don't want to use Brittany as a library!

@@ -3,7 +3,7 @@
 , nixpkgsLock
 , ghcVersion
 , overrides ? {}
-, haskellOverridePath ? ./nix/overrides/haskell
+, haskellOverridePath ? ./overrides/haskell
 }:
 
 let
@@ -12,19 +12,9 @@ let
   haskellPackageSets = { 
     skipTests = (overrides.skipTests or []) ++
       [ 
-        "coxswain"
-        "monad-memo"
-        "ghc-exactprint"
-        "rdf4h" 
-        "hsparql"
       ];
     jailbreak = (overrides.jailbreak or []) ++
-      [ "machines-process" 
-        "brittany" # butcher-1.2, not <1.2
-        "hakyll"
-        "latex-formulae-image"
-        # "latex-formulae-pandoc"
-        # "latex-formulae-hakyll"
+      [ 
       ];
     skipHaddock = (overrides.skipHaddock or []) ++ 
       [ 
